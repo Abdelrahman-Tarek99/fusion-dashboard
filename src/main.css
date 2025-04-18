@@ -1,0 +1,10 @@
+/* src/tailwind.css */
+@import "tailwindcss";
+
+@theme {
+  --font-sans-en: "Inter", sans-serif;
+  --font-sans-ar: "Cairo", sans-serif;
+  --color-brand-500: oklch(65% 0.23 257);
+}
+
+/* shared custom utilities, if any */

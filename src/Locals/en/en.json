@@ -1,0 +1,16 @@
+{
+  "common": {
+    "welcome": "Welcome",
+    "login": "Login",
+    "logout": "Logout",
+    "profile": "Profile",
+    "settings": "Settings"
+  },
+  "dashboard": {
+    "title": "Dashboard",
+    "overview": "Overview",
+    "statistics": "Statistics",
+    "recentActivity": "Recent Activity",
+    "notifications": "Notifications"
+  }
+}

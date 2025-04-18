@@ -1,35 +1,22 @@
-import { useState } from 'react'
-import reactLogo from './assets/react.svg'
-import viteLogo from '/vite.svg'
-import './App.css'
+import { useAppDispatch, useAppSelector } from "@/store/store";
+import { toggleTheme } from "./store/themeSlice/themeSlice";
+import { toggleLang } from "@/store/LanguageSlice/LanguageSlice";
 
-function App() {
-  const [count, setCount] = useState(0)
+export default function App() {
+  const dispatch = useAppDispatch();
+  const { theme, language } = useAppSelector((s) => ({
+    theme: s.theme,
+    language: s.language,
+  }));
 
   return (
-    <>
-      <div>
-        <a href="https://vite.dev" target="_blank">
-          <img src={viteLogo} className="logo" alt="Vite logo" />
-        </a>
-        <a href="https://react.dev" target="_blank">
-          <img src={reactLogo} className="logo react" alt="React logo" />
-        </a>
-      </div>
-      <h1>Vite + React</h1>
-      <div className="card">
-        <button onClick={() => setCount((count) => count + 1)}>
-          count is {count}
-        </button>
-        <p>
-          Edit <code>src/App.tsx</code> and save to test HMR
-        </p>
-      </div>
-      <p className="read-the-docs">
-        Click on the Vite and React logos to learn more
-      </p>
-    </>
-  )
+    <div className="flex gap-2">
+      <button onClick={() => dispatch(toggleTheme())}>
+        {theme === "dark" ? "☀️" : "🌙"}
+      </button>
+      <button onClick={() => dispatch(toggleLang())}>
+        {language === "en" ? "AR" : "EN"}
+      </button>
+    </div>
+  );
 }
-
-export default App
