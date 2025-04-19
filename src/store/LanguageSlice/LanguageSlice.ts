@@ -10,8 +10,14 @@ const languageSlice = createSlice({
   name: "language",
   initialState,
   reducers: {
-    toggleLang: (state) => (state === "en" ? "ar" : "en"),
-    setLang: (_state, action: PayloadAction<Lang>) => action.payload,
+    toggleLang: (state) => {
+      const newLang = state === "en" ? "ar" : "en";
+      window.location.reload();
+      return newLang;
+    },
+    setLang: (_state, action: PayloadAction<Lang>) => {
+      return action.payload;
+    },
   },
 });
 
