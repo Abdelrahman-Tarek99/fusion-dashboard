@@ -26,7 +26,7 @@ export function ColumnToggle<TData>({
       <DropdownMenuTrigger asChild>
         <Button variant="outline" size="sm" className={`   hidden h-8 lg:flex`}>
           <Settings2 />
-          View
+          {i18n.t("view")}
         </Button>
       </DropdownMenuTrigger>
       <DropdownMenuContent
