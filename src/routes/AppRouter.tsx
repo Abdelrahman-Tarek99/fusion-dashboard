@@ -29,10 +29,10 @@ export const appRoutes = createBrowserRouter([
           return { Component: Profile };
         },
       },
-      {
-        path: "*",
-        element: <ErrorPage />,
-      },
     ],
+  },
+  {
+    path: "*",
+    element: <ErrorPage />,
   },
 ]);
