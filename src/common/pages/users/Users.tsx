@@ -1,4 +1,4 @@
-export default function Users() {
+export const Users = () => {
   return (
     <div className="p-4">
       <h1 className="text-2xl font-bold mb-4">Users</h1>
@@ -12,4 +12,4 @@ export default function Users() {
       </div>
     </div>
   );
-}
+};

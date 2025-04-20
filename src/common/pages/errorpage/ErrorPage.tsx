@@ -2,7 +2,7 @@ import { useRouteError, isRouteErrorResponse } from "react-router-dom";
 import { Button } from "@/common/components/ui/button";
 import { useNavigate } from "react-router-dom";
 
-export default function ErrorPage() {
+export const ErrorPage = () => {
   const error = useRouteError();
   const navigate = useNavigate();
 
@@ -26,4 +26,4 @@ export default function ErrorPage() {
       <Button onClick={() => navigate("/")}>Go Home</Button>
     </div>
   );
-}
+};

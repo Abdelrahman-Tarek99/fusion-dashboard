@@ -1,31 +1,30 @@
 import { createBrowserRouter } from "react-router-dom";
-import App from "../App";
-import ErrorPage from "../pages/ErrorPage";
+import { Dashboard, ErrorPage } from "@/common/pages";
 
 export const appRoutes = createBrowserRouter([
   {
     path: "/",
-    element: <App />,
+    element: <Dashboard />,
     errorElement: <ErrorPage />,
     children: [
       {
         path: "dashboard",
         lazy: async () => {
-          const { default: Dashboard } = await import("@/pages/Dashboard");
+          const { Dashboard } = await import("@/common/pages");
           return { Component: Dashboard };
         },
       },
       {
         path: "users",
         lazy: async () => {
-          const { default: Profile } = await import("@/pages/Profile");
-          return { Component: Profile };
+          const { Users } = await import("@/common/pages");
+          return { Component: Users };
         },
       },
       {
         path: "profile",
         lazy: async () => {
-          const { default: Profile } = await import("@/pages/Profile");
+          const { Profile } = await import("@/common/pages");
           return { Component: Profile };
         },
       },
