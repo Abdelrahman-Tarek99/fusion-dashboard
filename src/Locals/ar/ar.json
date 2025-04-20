@@ -1,16 +1,11 @@
 {
-  "common": {
-    "welcome": "مرحباً",
-    "login": "تسجيل الدخول",
-    "logout": "تسجيل الخروج",
-    "profile": "الملف الشخصي",
-    "settings": "الإعدادات"
-  },
-  "dashboard": {
-    "title": "لوحة التحكم",
-    "overview": "نظرة عامة",
-    "statistics": "الإحصائيات",
-    "recentActivity": "النشاط الأخير",
-    "notifications": "الإشعارات"
-  }
+  "Users": "المستخدمين",
+  "dashboard": "لوحة القيادة",
+  "profile": "الملف الشخصي",
+  "status": "الحالة",
+  "email": "البريد الإلكتروني",
+  "lastName": "الاسم الأخير",
+  "firstName": "الاسم الأول",
+  "password": "كلمة المرور",
+  "id": "الهوية"
 }

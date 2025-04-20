@@ -10,3 +10,5 @@ export * from "./skeleton";
 export * from "./tooltip";
 export * from "./sideBar/sidebar";
 export * from "./BreadCrumbWrapper";
+export * from "./DataTable";
+export * from "./table";
