@@ -7,5 +7,14 @@
   "lastName": "Last Name",
   "firstName": "First Name",
   "password": "Password",
-  "id": "ID"
+  "id": "ID",
+  "filter_by_email_placeholder": "Filter by email ...",
+  "toggle_all_columns": "Toggle all columns",
+  "rows_per_page": "Rows per page",
+  "page": "Page",
+  "of": "of",
+  "go_to_first_page": "Go to first page",
+  "go_to_previous_page": "Go to previous page",
+  "go_to_next_page": "Go to next page",
+  "go_to_last_page": "Go to last page"
 }

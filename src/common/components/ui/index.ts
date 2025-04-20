@@ -12,3 +12,5 @@ export * from "./sideBar/sidebar";
 export * from "./BreadCrumbWrapper";
 export * from "./DataTable";
 export * from "./table";
+export * from "./dropdown-menu";
+export * from "./select";

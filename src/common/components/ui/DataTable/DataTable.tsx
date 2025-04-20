@@ -18,8 +18,9 @@ import {
   TableHead,
   TableHeader,
   TableRow,
-  Button,
   Input,
+  ColumnToggle,
+  FEPagination,
 } from "@/common/components";
 import React from "react";
 import { i18n } from "@/Locals";
@@ -27,11 +28,17 @@ import { i18n } from "@/Locals";
 interface DataTableProps<TData, TValue> {
   columns: ColumnDef<TData, TValue>[];
   data: TData[];
+  filterByPlaceholder?: string;
+  filterValue?: string;
+  enableSearchFilter?: boolean;
 }
 
 export function DataTable<TData, TValue>({
   columns,
   data,
+  filterByPlaceholder,
+  filterValue,
+  enableSearchFilter = true,
 }: DataTableProps<TData, TValue>) {
   const [sorting, setSorting] = React.useState<SortingState>([]);
   const [columnFilters, setColumnFilters] = React.useState<ColumnFiltersState>(
@@ -60,16 +67,25 @@ export function DataTable<TData, TValue>({
       }`}
       dir={isRtl ? "rtl" : "ltr"}
     >
-      <div className="flex items-center py-4">
-        <Input
-          placeholder="Filter emails..."
-          value={(table.getColumn("email")?.getFilterValue() as string) ?? ""}
-          onChange={(event) =>
-            table.getColumn("email")?.setFilterValue(event.target.value)
-          }
-          className="max-w-sm"
-        />
-      </div>
+      {enableSearchFilter && (
+        <div className="flex items-center justify-between py-4">
+          <Input
+            placeholder={filterByPlaceholder}
+            value={
+              (table
+                .getColumn(filterValue as string)
+                ?.getFilterValue() as string) ?? ""
+            }
+            onChange={(event) =>
+              table
+                .getColumn(filterValue as string)
+                ?.setFilterValue(event.target.value)
+            }
+            className="max-w-sm"
+          />
+          <ColumnToggle table={table} />
+        </div>
+      )}
       <Table>
         <TableHeader>
           {table.getHeaderGroups().map((headerGroup) => (
@@ -112,24 +128,7 @@ export function DataTable<TData, TValue>({
           )}
         </TableBody>
       </Table>
-      <div className="flex items-center justify-end space-x-2 py-4">
-        <Button
-          variant="outline"
-          size="sm"
-          onClick={() => table.previousPage()}
-          disabled={!table.getCanPreviousPage()}
-        >
-          Previous
-        </Button>
-        <Button
-          variant="outline"
-          size="sm"
-          onClick={() => table.nextPage()}
-          disabled={!table.getCanNextPage()}
-        >
-          Next
-        </Button>
-      </div>
+      <FEPagination table={table} />
     </div>
   );
 }
