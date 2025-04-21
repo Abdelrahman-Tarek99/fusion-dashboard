@@ -83,6 +83,10 @@
   --sidebar-accent-foreground: oklch(0.208 0.042 265.755);
   --sidebar-border: oklch(0.929 0.013 255.508);
   --sidebar-ring: oklch(0.704 0.04 256.788);
+  --chart-gradient-1-start: hsla(var(--chart-1), 0.3);
+  --chart-gradient-1-stop: hsla(var(--chart-1), 0.05);
+  --chart-gradient-2-start: hsla(var(--chart-2), 0.3);
+  --chart-gradient-2-stop: hsla(var(--chart-2), 0.05);
 }
 
 .dark {
@@ -117,6 +121,11 @@
   --sidebar-accent-foreground: oklch(0.984 0.003 247.858);
   --sidebar-border: oklch(1 0 0 / 10%);
   --sidebar-ring: oklch(0.551 0.027 264.364);
+  --chart-1: 220 80% 65%;
+  --chart-2: 160 60% 45%;
+  --chart-3: 30 80% 55%;
+  --chart-4: 280 65% 60%;
+  --chart-5: 340 75% 55%;
 }
 
 @layer base {

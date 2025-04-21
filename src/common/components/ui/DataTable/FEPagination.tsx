@@ -20,6 +20,12 @@ interface DataTablePaginationProps<TData> {
   table: Table<TData>;
 }
 
+const pageSizeOptions = [
+  { value: 10, label: "User" },
+  { value: 20, label: "Desktop" },
+  { value: 30, label: "Market Capital" },
+];
+
 export function FEPagination<TData>({
   table,
 }: DataTablePaginationProps<TData>) {
@@ -42,9 +48,9 @@ export function FEPagination<TData>({
               <SelectValue placeholder={table.getState().pagination.pageSize} />
             </SelectTrigger>
             <SelectContent side="top">
-              {[10, 20, 30, 40, 50].map((pageSize) => (
-                <SelectItem key={pageSize} value={`${pageSize}`}>
-                  {pageSize}
+              {pageSizeOptions.map((option) => (
+                <SelectItem key={option.value} value={`${option.value}`}>
+                  {option.label}
                 </SelectItem>
               ))}
             </SelectContent>

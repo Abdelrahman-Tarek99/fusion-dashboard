@@ -17,5 +17,10 @@
   "go_to_previous_page": "Go to previous page",
   "go_to_next_page": "Go to next page",
   "go_to_last_page": "Go to last page",
-  "view": "View"
+  "view": "View",
+  "chart_title": "Market Capital",
+  "chart_description": "Showing Market Capital for Each User for the last 3 months",
+  "last_3_months": "Last 3 months",
+  "last_30_days": "Last 30 days",
+  "last_7_days": "Last 7 days"
 }

@@ -1,12 +1,17 @@
 import { createBrowserRouter } from "react-router-dom";
 import { Dashboard, ErrorPage } from "@/common/pages";
+import { LayoutWithSideBar } from "@/common/wrappers";
 
 export const appRoutes = createBrowserRouter([
   {
     path: "/",
-    element: <Dashboard />,
+    element: <LayoutWithSideBar />,
     errorElement: <ErrorPage />,
     children: [
+      {
+        index: true, // This makes it render at the root path
+        element: <Dashboard />,
+      },
       {
         path: "dashboard",
         lazy: async () => {

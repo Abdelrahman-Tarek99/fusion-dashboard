@@ -14,3 +14,6 @@ export * from "./DataTable";
 export * from "./table";
 export * from "./dropdown-menu";
 export * from "./select";
+export * from "./card";
+export * from "./chart";
+export * from "./chartDataTable";
