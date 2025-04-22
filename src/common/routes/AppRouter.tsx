@@ -1,8 +1,7 @@
 import { createBrowserRouter } from "react-router-dom";
 import { Dashboard, ErrorPage, SignInPage, SignUpPage } from "@/common/pages";
-import { LayoutWithSideBar } from "@/common/wrappers";
+import { LayoutWithSideBar, ProtectedRoute } from "@/common/wrappers";
 import { AppRoutes } from "./AppRoutes";
-import { ProtectedRoute } from "@/common/components/ProtectedRoute";
 
 export const appRoutes = createBrowserRouter([
   {
@@ -23,39 +22,21 @@ export const appRoutes = createBrowserRouter([
         path: "dashboard",
         lazy: async () => {
           const { Dashboard } = await import("@/common/pages");
-          return {
-            Component: () => (
-              <ProtectedRoute>
-                <Dashboard />
-              </ProtectedRoute>
-            ),
-          };
+          return { Component: Dashboard };
         },
       },
       {
         path: "users",
         lazy: async () => {
           const { Users } = await import("@/common/pages");
-          return {
-            Component: () => (
-              <ProtectedRoute>
-                <Users />
-              </ProtectedRoute>
-            ),
-          };
+          return { Component: Users };
         },
       },
       {
         path: "profile",
         lazy: async () => {
           const { Profile } = await import("@/common/pages");
-          return {
-            Component: () => (
-              <ProtectedRoute>
-                <Profile />
-              </ProtectedRoute>
-            ),
-          };
+          return { Component: Profile };
         },
       },
     ],
