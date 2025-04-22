@@ -1,6 +1,7 @@
 import { Skeleton } from "@/common/components";
 import { AppRoutes } from "@/common/routes";
 import { ClerkLoading, SignUp } from "@clerk/clerk-react";
+import fusionLogo from "@/assets/fusion-Logo.webp";
 
 export const SignUpPage = () => {
   return (
@@ -32,11 +33,7 @@ export const SignUpPage = () => {
       <div className="relative z-10 flex w-full max-w-3xl flex-col items-center gap-8 p-4">
         {/* Logo */}
         <div className="flex items-center gap-4">
-          <img
-            src="/src/assets/fusion-Logo.webp"
-            alt="Logo"
-            className="h-16 w-16"
-          />
+          <img src={fusionLogo} alt="Logo" className="h-16 w-16" />
           <span className="text-3xl font-bold text-foreground">
             Fusion Dashboard
           </span>

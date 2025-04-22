@@ -1,8 +1,19 @@
 import { Skeleton } from "@/common/components";
 import { AppRoutes } from "@/common/routes";
-import { ClerkLoading, SignIn } from "@clerk/clerk-react";
+import { ClerkLoading, SignIn, useAuth } from "@clerk/clerk-react";
+import fusionLogo from "@/assets/fusion-Logo.webp";
+import { Navigate, useLocation } from "react-router-dom";
 
 export const SignInPage = () => {
+  const { isSignedIn } = useAuth();
+  const location = useLocation();
+  const from = location.state?.from?.pathname || "/";
+
+  // If already signed in, redirect to the intended destination
+  if (isSignedIn) {
+    return <Navigate to={from} replace />;
+  }
+
   return (
     <div className="relative flex h-screen w-screen items-center justify-center overflow-hidden bg-background">
       {/* Animated Background */}
@@ -32,11 +43,7 @@ export const SignInPage = () => {
       <div className="relative z-10 flex w-full max-w-3xl flex-col items-center gap-8 p-4">
         {/* Logo */}
         <div className="flex items-center gap-4">
-          <img
-            src="/src/assets/fusion-Logo.webp"
-            alt="Logo"
-            className="h-16 w-16"
-          />
+          <img src={fusionLogo} alt="Logo" className="h-16 w-16" />
           <span className="text-3xl font-bold text-foreground">
             Fusion Dashboard
           </span>
@@ -45,6 +52,7 @@ export const SignInPage = () => {
         {/* Sign In Component */}
 
         <SignIn
+          forceRedirectUrl={from}
           routing="path"
           path={AppRoutes.signIn}
           signUpUrl={AppRoutes.signup}
