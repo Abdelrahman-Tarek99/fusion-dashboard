@@ -1,12 +1,27 @@
 // tailwind.config.js
 export default {
   content: ["./index.html", "./src/**/*.{js,ts,jsx,tsx}"],
-
-  /* ↑ keep scans tight for perf */
-
-  darkMode: "class", // <‑‑ enables the .dark selector
+  theme: {
+    extend: {
+      animation: {
+        orbit: "orbit 20s linear infinite",
+        "spin-slow": "spin 15s linear infinite",
+      },
+      keyframes: {
+        orbit: {
+          "0%": {
+            transform: "translate(-50%, -50%) rotate(0deg)",
+          },
+          "100%": {
+            transform: "translate(-50%, -50%) rotate(360deg)",
+          },
+        },
+      },
+    },
+  },
+  darkMode: "class",
   corePlugins: {
-    preflight: true, // keep Tailwind’s reset (it’s dir‑aware)
+    preflight: true,
   },
 
   plugins: [

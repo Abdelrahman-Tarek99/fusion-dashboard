@@ -1,6 +1,9 @@
 import { createBrowserRouter } from "react-router-dom";
 import { Dashboard, ErrorPage } from "@/common/pages";
 import { LayoutWithSideBar } from "@/common/wrappers";
+import { AppRoutes } from "./AppRoutes";
+import SignInPage from "@/pages/SignIn";
+import SignUpPage from "@/pages/SignUp";
 
 export const appRoutes = createBrowserRouter([
   {
@@ -12,6 +15,7 @@ export const appRoutes = createBrowserRouter([
         index: true, // This makes it render at the root path
         element: <Dashboard />,
       },
+
       {
         path: "dashboard",
         lazy: async () => {
@@ -34,6 +38,14 @@ export const appRoutes = createBrowserRouter([
         },
       },
     ],
+  },
+  {
+    path: AppRoutes.signIn,
+    Component: SignInPage,
+  },
+  {
+    path: AppRoutes.signup,
+    Component: SignUpPage,
   },
   {
     path: "*",
