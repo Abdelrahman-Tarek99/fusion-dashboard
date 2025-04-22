@@ -2,7 +2,7 @@ import { Skeleton } from "@/common/components";
 import { AppRoutes } from "@/common/routes";
 import { ClerkLoading, SignUp } from "@clerk/clerk-react";
 
-export default function SignUpPage() {
+export const SignUpPage = () => {
   return (
     <div className="relative flex h-screen w-screen items-center justify-center overflow-hidden bg-background">
       {/* Animated Background */}
@@ -69,4 +69,4 @@ export default function SignUpPage() {
       </div>
     </div>
   );
-}
+};

@@ -1,9 +1,7 @@
 import { createBrowserRouter } from "react-router-dom";
-import { Dashboard, ErrorPage } from "@/common/pages";
+import { Dashboard, ErrorPage, SignInPage, SignUpPage } from "@/common/pages";
 import { LayoutWithSideBar } from "@/common/wrappers";
 import { AppRoutes } from "./AppRoutes";
-import SignInPage from "@/pages/SignIn";
-import SignUpPage from "@/pages/SignUp";
 
 export const appRoutes = createBrowserRouter([
   {
