@@ -33,7 +33,7 @@ export const appRoutes = createBrowserRouter([
         },
       },
       {
-        path: AppRoutes.dashboard,
+        path: AppRoutes.profile,
         lazy: async () => {
           const { Profile } = await import("@/common/pages");
           return { Component: Profile };
