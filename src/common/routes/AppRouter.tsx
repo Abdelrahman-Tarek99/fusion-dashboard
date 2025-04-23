@@ -19,21 +19,21 @@ export const appRoutes = createBrowserRouter([
       },
 
       {
-        path: "dashboard",
+        path: AppRoutes.dashboard,
         lazy: async () => {
           const { Dashboard } = await import("@/common/pages");
           return { Component: Dashboard };
         },
       },
       {
-        path: "users",
+        path: AppRoutes.users,
         lazy: async () => {
           const { Users } = await import("@/common/pages");
           return { Component: Users };
         },
       },
       {
-        path: "profile",
+        path: AppRoutes.dashboard,
         lazy: async () => {
           const { Profile } = await import("@/common/pages");
           return { Component: Profile };
