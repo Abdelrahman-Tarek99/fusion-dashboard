@@ -1,53 +1,101 @@
+import { lazy } from "react";
 import { createBrowserRouter } from "react-router-dom";
-import { Dashboard, ErrorPage, SignInPage, SignUpPage } from "@/common/pages";
-import { LayoutWithSideBar, ProtectedRoute } from "@/common/wrappers";
+import { LazyWithBoundary, ProtectedRoute } from "@/common/wrappers";
 import { AppRoutes } from "./AppRoutes";
+import { ErrorPage } from "@/common/pages";
+
+// Lazy load components
+const Dashboard = lazy(() =>
+  import("@/common/pages/dashboard/Dashboard").then((module) => ({
+    default: module.Dashboard,
+  }))
+);
+const Users = lazy(() =>
+  import("@/common/pages/users/Users").then((module) => ({
+    default: module.Users,
+  }))
+);
+const Profile = lazy(() =>
+  import("@/common/pages/profile/Profile").then((module) => ({
+    default: module.Profile,
+  }))
+);
+const SignInPage = lazy(() =>
+  import("@/common/pages/signIn/SignIn").then((module) => ({
+    default: module.SignInPage,
+  }))
+);
+const SignUpPage = lazy(() =>
+  import("@/common/pages/signUp/SignUp").then((module) => ({
+    default: module.SignUpPage,
+  }))
+);
+const LayoutWithSideBar = lazy(() =>
+  import("@/common/wrappers/LayoutWithSideBar").then((module) => ({
+    default: module.LayoutWithSideBar,
+  }))
+);
 
 export const appRoutes = createBrowserRouter([
   {
     path: "/",
     element: (
-      <ProtectedRoute>
-        <LayoutWithSideBar />
-      </ProtectedRoute>
+      <LazyWithBoundary>
+        <ProtectedRoute>
+          <LayoutWithSideBar />
+        </ProtectedRoute>
+      </LazyWithBoundary>
     ),
-    errorElement: <ErrorPage />,
     children: [
       {
-        index: true, // This makes it render at the root path
-        element: <Dashboard />,
+        index: true,
+        element: (
+          <LazyWithBoundary>
+            <Dashboard />
+          </LazyWithBoundary>
+        ),
       },
-
       {
         path: AppRoutes.dashboard,
-        lazy: async () => {
-          const { Dashboard } = await import("@/common/pages");
-          return { Component: Dashboard };
-        },
+        element: (
+          <LazyWithBoundary>
+            <Dashboard />
+          </LazyWithBoundary>
+        ),
       },
       {
         path: AppRoutes.users,
-        lazy: async () => {
-          const { Users } = await import("@/common/pages");
-          return { Component: Users };
-        },
+        element: (
+          <LazyWithBoundary>
+            <Users />
+          </LazyWithBoundary>
+        ),
       },
       {
         path: AppRoutes.profile,
-        lazy: async () => {
-          const { Profile } = await import("@/common/pages");
-          return { Component: Profile };
-        },
+        element: (
+          <LazyWithBoundary>
+            <Profile />
+          </LazyWithBoundary>
+        ),
       },
     ],
   },
   {
     path: AppRoutes.signIn,
-    Component: SignInPage,
+    element: (
+      <LazyWithBoundary>
+        <SignInPage />
+      </LazyWithBoundary>
+    ),
   },
   {
     path: AppRoutes.signup,
-    Component: SignUpPage,
+    element: (
+      <LazyWithBoundary>
+        <SignUpPage />
+      </LazyWithBoundary>
+    ),
   },
   {
     path: "*",

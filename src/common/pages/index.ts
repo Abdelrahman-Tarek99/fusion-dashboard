@@ -1,5 +1,5 @@
 export * from "./dashboard";
-export * from "./errorpage";
+export * from "./errorPage";
 export * from "./profile";
 export * from "./users";
 export * from "./signIn";

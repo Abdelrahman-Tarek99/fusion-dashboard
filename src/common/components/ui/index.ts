@@ -16,4 +16,6 @@ export * from "./dropdown-menu";
 export * from "./select";
 export * from "./card";
 export * from "./chart";
+export * from "./alert";
 export * from "./chartDataTable";
+export * from "./Loader";

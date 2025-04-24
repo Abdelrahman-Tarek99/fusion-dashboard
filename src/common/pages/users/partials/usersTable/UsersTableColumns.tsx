@@ -16,6 +16,7 @@ export const UsersColumns: ColumnDef<IUsersData>[] = [
         <span>
           <Button
             variant="ghost"
+            className="hover:cursor-pointer"
             onClick={() => column.toggleSorting(column.getIsSorted() === "asc")}
           >
             {i18n.t("email")}

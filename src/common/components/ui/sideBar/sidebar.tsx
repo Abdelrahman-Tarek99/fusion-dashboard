@@ -1,6 +1,5 @@
 import * as React from "react";
 import { Link, useLocation } from "react-router-dom";
-import { GalleryVerticalEnd } from "lucide-react";
 
 import {
   Sidebar,
@@ -20,6 +19,8 @@ import {
 import { useSideBar } from "./useSideBar";
 import { toggleTheme } from "@/store/themeSlice/themeSlice";
 import { toggleLang } from "@/store/LanguageSlice/LanguageSlice";
+import { AppRoutes } from "@/common/routes";
+import fusionLogo from "@/assets/fusion-Logo.webp";
 
 export function AppSidebar(props: React.ComponentProps<typeof Sidebar>) {
   const { pathname } = useLocation();
@@ -31,13 +32,16 @@ export function AppSidebar(props: React.ComponentProps<typeof Sidebar>) {
         <SidebarMenu>
           <SidebarMenuItem>
             <SidebarMenuButton size="lg" asChild>
-              <Link to="#">
-                <div className="flex aspect-square size-8 items-center justify-center rounded-lg bg-sidebar-primary text-sidebar-primary-foreground">
-                  <GalleryVerticalEnd className="size-4" />
-                </div>
-                <div className="flex flex-col gap-0.5 leading-none">
-                  <span className="font-semibold">Documentation</span>
-                  <span className="">v1.0.0</span>
+              <Link to={AppRoutes.dashboard}>
+                <div className="flex aspect-square size-8 items-center justify-between rounded-lg text-sidebar-primary-foreground">
+                  <img
+                    src={fusionLogo}
+                    alt="Logo"
+                    className="h-8 w-8 rounded-full"
+                  />
+                  <span className="ml-2 text-sm font-semibold text-foreground text-nowrap">
+                    Fusion Dashboard
+                  </span>
                 </div>
               </Link>
             </SidebarMenuButton>

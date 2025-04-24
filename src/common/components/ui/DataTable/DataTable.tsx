@@ -1,14 +1,10 @@
-"use client";
-
 import {
   ColumnDef,
   flexRender,
   getCoreRowModel,
   useReactTable,
   getPaginationRowModel,
-  SortingState,
   getSortedRowModel,
-  ColumnFiltersState,
   getFilteredRowModel,
 } from "@tanstack/react-table";
 import {
@@ -22,8 +18,7 @@ import {
   ColumnToggle,
   FEPagination,
 } from "@/common/components";
-import React from "react";
-import { i18n } from "@/Locals";
+import { useDataTable } from "./useDataTable";
 
 interface DataTableProps<TData, TValue> {
   columns: ColumnDef<TData, TValue>[];
@@ -40,11 +35,19 @@ export function DataTable<TData, TValue>({
   filterValue,
   enableSearchFilter = true,
 }: DataTableProps<TData, TValue>) {
-  const [sorting, setSorting] = React.useState<SortingState>([]);
-  const [columnFilters, setColumnFilters] = React.useState<ColumnFiltersState>(
-    []
-  );
-  const isRtl = i18n.language === "ar";
+  const {
+    sorting,
+    setSorting,
+    columnFilters,
+    setColumnFilters,
+    columnVisibility,
+    setColumnVisibility,
+    hasVisibleColumns,
+    hasData,
+    isRtl,
+    t,
+  } = useDataTable();
+
   const table = useReactTable({
     data,
     columns,
@@ -54,9 +57,11 @@ export function DataTable<TData, TValue>({
     getSortedRowModel: getSortedRowModel(),
     onColumnFiltersChange: setColumnFilters,
     getFilteredRowModel: getFilteredRowModel(),
+    onColumnVisibilityChange: setColumnVisibility,
     state: {
       sorting,
       columnFilters,
+      columnVisibility,
     },
   });
 
@@ -106,7 +111,19 @@ export function DataTable<TData, TValue>({
           ))}
         </TableHeader>
         <TableBody>
-          {table.getRowModel().rows?.length ? (
+          {!hasVisibleColumns(table) ? (
+            <TableRow>
+              <TableCell colSpan={columns.length} className="h-24 text-center">
+                {t("no_columns_visible")}
+              </TableCell>
+            </TableRow>
+          ) : !hasData(table) ? (
+            <TableRow>
+              <TableCell colSpan={columns.length} className="h-24 text-center">
+                {t("no_results_found")}
+              </TableCell>
+            </TableRow>
+          ) : (
             table.getRowModel().rows.map((row) => (
               <TableRow
                 key={row.id}
@@ -119,12 +136,6 @@ export function DataTable<TData, TValue>({
                 ))}
               </TableRow>
             ))
-          ) : (
-            <TableRow>
-              <TableCell colSpan={columns.length} className="h-24 text-center">
-                No results.
-              </TableCell>
-            </TableRow>
           )}
         </TableBody>
       </Table>

@@ -24,5 +24,11 @@
   "last_30_days": "Last 30 days",
   "last_7_days": "Last 7 days",
   "sign_in": "Sign In",
-  "sign_out": "Sign Out"
+  "sign_out": "Sign Out",
+  "no_results_found": "No results found",
+  "no_columns_visible": "No columns are visible. Please select at least one column to display.",
+  "dashboard_error": "Dashboard failed to load!",
+  "error_title": "Oops! Something went wrong.",
+  "error_description": "Please try refreshing the page or contact support if needed.",
+  "refresh_page": "Refresh Page"
 }
