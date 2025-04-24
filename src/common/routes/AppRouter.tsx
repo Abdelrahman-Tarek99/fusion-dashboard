@@ -4,7 +4,6 @@ import { LazyWithBoundary, ProtectedRoute } from "@/common/wrappers";
 import { AppRoutes } from "./AppRoutes";
 import { ErrorPage } from "@/common/pages";
 
-// Lazy load components
 const Dashboard = lazy(() =>
   import("@/common/pages/dashboard/Dashboard").then((module) => ({
     default: module.Dashboard,
