@@ -30,5 +30,8 @@
   "dashboard_error": "Dashboard failed to load!",
   "error_title": "Oops! Something went wrong.",
   "error_description": "Please try refreshing the page or contact support if needed.",
-  "refresh_page": "Refresh Page"
+  "refresh_page": "Refresh Page",
+  "page_not_found_title": "Page Not Found",
+  "page_not_found_description": "Sorry, the page you are looking for doesn't exist or has been moved.",
+  "back_to_home": "Back to Home"
 }

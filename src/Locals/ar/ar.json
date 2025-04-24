@@ -30,5 +30,8 @@
   "dashboard_error": "فشل تحميل لوحة القيادة!",
   "error_title": "عذراً! حدث خطأ ما.",
   "error_description": "يرجى تحديث الصفحة أو الاتصال بالدعم إذا لزم الأمر.",
-  "refresh_page": "تحديث الصفحة"
+  "refresh_page": "تحديث الصفحة",
+  "page_not_found_title": "الصفحة غير موجودة",
+  "page_not_found_description": "عذراً، الصفحة التي تبحث عنها غير موجودة أو تم نقلها.",
+  "back_to_home": "العودة إلى الرئيسية"
 }
