@@ -19,3 +19,5 @@ export * from "./chart";
 export * from "./alert";
 export * from "./chartDataTable";
 export * from "./Loader";
+export * from "./switch";
+export * from "./avatar";

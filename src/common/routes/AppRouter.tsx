@@ -34,6 +34,11 @@ const LayoutWithSideBar = lazy(() =>
     default: module.LayoutWithSideBar,
   }))
 );
+const PermissionPage = lazy(() =>
+  import("@/common/pages/permissions/Permissions").then((module) => ({
+    default: module.Permissions,
+  }))
+);
 
 export const appRoutes = createBrowserRouter([
   {
@@ -75,6 +80,14 @@ export const appRoutes = createBrowserRouter([
         element: (
           <LazyWithBoundary>
             <Profile />
+          </LazyWithBoundary>
+        ),
+      },
+      {
+        path: AppRoutes.permissions,
+        element: (
+          <LazyWithBoundary>
+            <PermissionPage />
           </LazyWithBoundary>
         ),
       },

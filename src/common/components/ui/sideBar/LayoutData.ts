@@ -1,19 +1,21 @@
+import { AppRoutes } from "@/common/routes";
+
 export const layoutData = {
   navMain: [
     {
       title: "Dashboard",
-      url: "/dashboard",
+      url: AppRoutes.dashboard,
     },
     {
       title: "Profile",
-      url: "/profile",
+      url: AppRoutes.profile,
     },
     {
       title: "User Management",
-      url: "/users",
+      url: AppRoutes.users,
       items: [
-        { title: "All Users", url: "/users" },
-        { title: "Permissions", url: "/users/permissions" },
+        { title: "All Users", url: AppRoutes.users },
+        { title: "Permissions", url: AppRoutes.permissions },
       ],
     },
   ],

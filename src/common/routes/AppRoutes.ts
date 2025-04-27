@@ -5,4 +5,5 @@ export const AppRoutes = {
   dashboard: "/dashboard",
   users: "/users",
   profile: "/profile",
+  permissions: "/permissions",
 };
